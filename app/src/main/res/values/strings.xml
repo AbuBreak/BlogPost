@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">BlogPost</string>
+    <string name="intro_text">A place where you can share your views</string>
+</resources>
