@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
         options = ArrayList()
         options = setData()
         adapter = OptionAdapter(options = options!!, context = this@MainActivity)
-        mainBinding.gridView.adapter = adapter
 
 
     }
