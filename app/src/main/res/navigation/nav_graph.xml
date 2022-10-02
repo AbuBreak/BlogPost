@@ -9,29 +9,17 @@
         android:id="@+id/postsFragment"
         android:name="com.malikbreak.blogpost.post.PostsFragment"
         android:label="fragment_posts"
-        tools:layout="@layout/fragment_posts">
-        <action
-            android:id="@+id/action_postsFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_posts"/>
     <fragment
         android:id="@+id/todosFragment"
         android:name="com.malikbreak.blogpost.todo.TodosFragment"
         android:label="fragment_todos"
-        tools:layout="@layout/fragment_todos" >
-        <action
-            android:id="@+id/action_todosFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_todos" />
     <fragment
         android:id="@+id/usersFragment"
         android:name="com.malikbreak.blogpost.user.UsersFragment"
         android:label="fragment_users"
-        tools:layout="@layout/fragment_users" >
-        <action
-            android:id="@+id/action_usersFragment_to_mainFragment"
-            app:destination="@id/mainFragment" />
-    </fragment>
+        tools:layout="@layout/fragment_users" />
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.malikbreak.blogpost.main.ui.MainFragment"
