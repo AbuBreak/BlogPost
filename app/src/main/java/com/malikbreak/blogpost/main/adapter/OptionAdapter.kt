@@ -1,55 +1,41 @@
 package com.malikbreak.blogpost.main.adapter
 
-
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.BaseAdapter
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.recyclerview.widget.RecyclerView
 import com.malikbreak.blogpost.R
 import com.malikbreak.blogpost.main.model.OptionItem
 
- class OptionAdapter(var context: Context, var options: List<OptionItem>) :
-    BaseAdapter() {
-    private var layoutInflater: LayoutInflater? = null
-    private lateinit var optionTV: TextView
-    private lateinit var optionIV: ImageView
+class OptionAdapter(var context: Context, var options: List<OptionItem>) :
+    RecyclerView.Adapter<OptionAdapter.OptionViewHolder>() {
 
-    override fun getCount(): Int {
-       return options.size
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OptionViewHolder {
+        val view = LayoutInflater.from(context).inflate(R.layout.grid_item, parent, false)
+        return OptionViewHolder(view)
     }
 
-    override fun getItem(position: Int): Any {
-        return position
+    override fun onBindViewHolder(holder: OptionViewHolder, position: Int) {
+        holder.name.text = options[position].name
+        holder.img.setImageResource(options[position].icon)
     }
 
-    override fun getItemId(position: Int): Long {
-       return position.toLong()
+    override fun getItemCount(): Int {
+        return options.size
     }
 
-    override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
-        var convertView = convertView
 
-        if (layoutInflater == null) {
-            layoutInflater =
-                context.getSystemService(Context.LAYOUT_INFLATER_SERVICE) as LayoutInflater
+    class OptionViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+         var img: ImageView
+         var name: TextView
+
+        init {
+            img = itemView.findViewById(R.id.itemImg)
+            name = itemView.findViewById(R.id.itemName)
         }
-
-        if (convertView == null) {
-
-            convertView = layoutInflater!!.inflate(R.layout.grid_item, null)
-        }
-
-        optionIV = convertView!!.findViewById(R.id.gridImg)
-        optionTV = convertView.findViewById(R.id.itemName)
-
-        optionIV.setImageResource(options[position].icon)
-        optionTV.text = options[position].name
-
-        return convertView
     }
-
 
 }

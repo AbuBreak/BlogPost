@@ -2,7 +2,8 @@ package com.malikbreak.blogpost.main.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.GridView
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.malikbreak.blogpost.R
 import com.malikbreak.blogpost.databinding.ActivityMainBinding
 import com.malikbreak.blogpost.main.adapter.OptionAdapter
@@ -11,9 +12,9 @@ import com.malikbreak.blogpost.main.model.OptionItem
 class MainActivity : AppCompatActivity() {
     private lateinit var mainBinding: ActivityMainBinding
 
-    private var options: ArrayList<OptionItem>? = null
-    private var gridView: GridView? = null
-    private var adapter: OptionAdapter? = null
+    private lateinit var options: List<OptionItem>
+    private var adapter: RecyclerView.Adapter<OptionAdapter.OptionViewHolder>? = null
+    private var layoutManager: RecyclerView.LayoutManager? = null
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -22,12 +23,15 @@ class MainActivity : AppCompatActivity() {
 
         options = ArrayList()
         options = setData()
-        adapter = OptionAdapter(options = options!!, context = this@MainActivity)
 
+        layoutManager = GridLayoutManager(this, 2)
+        mainBinding.recyclerView.layoutManager = layoutManager
 
+        adapter = OptionAdapter(this, options)
+        mainBinding.recyclerView.adapter = adapter
     }
 
-    private fun setData(): ArrayList<OptionItem> {
+    private fun setData(): List<OptionItem> {
         val array: ArrayList<OptionItem> = ArrayList()
         array.add(OptionItem(R.drawable.post, "Posts"))
         array.add(OptionItem(R.drawable.todo, "Todos"))
