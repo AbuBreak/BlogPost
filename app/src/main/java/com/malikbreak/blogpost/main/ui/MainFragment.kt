@@ -2,6 +2,8 @@ package com.malikbreak.blogpost.main.ui
 
 import android.os.Bundle
 import android.view.View
+import android.widget.Toast
+import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -13,7 +15,7 @@ import com.malikbreak.blogpost.main.adapter.OptionAdapter
 import com.malikbreak.blogpost.main.model.OptionItem
 
 
-class MainFragment : BaseFragment<FragmentMainBinding>() {
+class MainFragment : BaseFragment<FragmentMainBinding>(), OptionAdapter.OnItemClickListener{
 
     private lateinit var options: List<OptionItem>
     private var adapter: RecyclerView.Adapter<OptionAdapter.OptionViewHolder>? = null
@@ -31,7 +33,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         layoutManager = GridLayoutManager(activity,2)
         binding.recyclerView.layoutManager = layoutManager
 
-        adapter = OptionAdapter(this, options)
+        adapter = OptionAdapter(this, options, this)
         binding.recyclerView.adapter = adapter
 
     }
@@ -43,5 +45,10 @@ class MainFragment : BaseFragment<FragmentMainBinding>() {
         array.add(OptionItem(R.drawable.user, "Users"))
         return array
     }
+
+    override fun onItemClick(position: Int) {
+        view?.let { Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_postsFragment) }
+    }
+
 
 }
