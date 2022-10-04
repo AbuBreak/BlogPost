@@ -2,11 +2,8 @@ package com.malikbreak.blogpost.main.ui
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
 import androidx.navigation.Navigation
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.malikbreak.blogpost.R
 import com.malikbreak.blogpost.core.base.BaseFragment

@@ -8,7 +8,7 @@ import com.malikbreak.blogpost.core.base.BaseFragment
 import com.malikbreak.blogpost.databinding.FragmentPostsBinding
 import com.malikbreak.blogpost.post.model.PostModelItem
 
-class PostsFragment : BaseFragment<FragmentPostsBinding>() {
+ class PostsFragment : BaseFragment<FragmentPostsBinding>() {
 
     private lateinit var postViewModel: PostViewModel
 
@@ -24,12 +24,12 @@ class PostsFragment : BaseFragment<FragmentPostsBinding>() {
 
         postViewModel.getPosts()
 
-        adapter = posts?.let { PostsAdapter(it) }!!
+        adapter = posts?.let { PostsAdapter(requireContext(), it) }!!
         binding.postRecycler.adapter = adapter
         binding.postRecycler.layoutManager = LinearLayoutManager(activity)
 
         postViewModel.postsMutableLiveData.observe(viewLifecycleOwner) {
-                adapter.setList(posts!!)
+                adapter.setPostList(posts!!)
         }
     }
 }

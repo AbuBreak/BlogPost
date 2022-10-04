@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:id="@+id/postCardView"
+    android:id="@+id/commentCardView"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:layout_margin="10dp"
@@ -11,49 +11,68 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:padding="5dp">
+
 
         <TextView
-            android:id="@+id/titleTV"
+            android:id="@+id/postIdTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_margin="16dp"
-            android:layout_marginTop="16dp"
-            android:fontFamily="@font/roboto_mono"
-            android:textColor="@color/black"
-            android:textSize="@dimen/primary_font_size"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="@id/userIdTV"
-            app:layout_constraintHorizontal_bias="0.082"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <TextView
-            android:id="@+id/userIdTV"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="52dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_mono"
             android:textColor="@color/black"
             android:textSize="@dimen/primary_font_size"
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.047"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
-            android:id="@+id/bodyTV"
-            android:layout_width="wrap_content"
+            android:id="@+id/postBodyTV"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="8dp"
             android:fontFamily="@font/roboto_mono"
             android:textColor="@color/black"
-            android:textSize="@dimen/secondary_font_size"
+            android:textSize="@dimen/primary_font_size"
             android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@+id/nameTV"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/titleTV" />
+            app:layout_constraintTop_toBottomOf="@+id/postIdTV" />
 
+        <TextView
+            android:id="@+id/nameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="104dp"
+            android:fontFamily="@font/roboto_mono"
+            android:textColor="@color/black"
+            android:textSize="@dimen/primary_font_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.046"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/postBodyTV" />
+
+        <TextView
+            android:id="@+id/emailTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/roboto_mono"
+            android:textColor="@color/black"
+            android:textSize="@dimen/primary_font_size"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="@+id/nameTV"
+            app:layout_constraintStart_toStartOf="@+id/nameTV"
+            app:layout_constraintTop_toBottomOf="@+id/nameTV" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </androidx.cardview.widget.CardView>
