@@ -2,6 +2,7 @@ package com.malikbreak.blogpost.post.ui
 
 import android.os.Bundle
 import android.view.View
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.malikbreak.blogpost.core.base.BaseFragment
@@ -24,12 +25,10 @@ import com.malikbreak.blogpost.post.model.PostModelItem
 
         postViewModel.getPosts()
 
-        adapter = posts?.let { PostsAdapter(requireContext(), it) }!!
-        binding.postRecycler.adapter = adapter
-        binding.postRecycler.layoutManager = LinearLayoutManager(activity)
-
         postViewModel.postsMutableLiveData.observe(viewLifecycleOwner) {
-                adapter.setPostList(posts!!)
+            adapter = PostsAdapter(requireContext(), it)
+            binding.postRecycler.adapter = adapter
+            binding.postRecycler.layoutManager = LinearLayoutManager(activity)
         }
     }
 }
