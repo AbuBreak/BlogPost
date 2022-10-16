@@ -1,4 +1,4 @@
-package com.malikbreak.blogpost.post.ui
+package com.malikbreak.blogpost.post.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context

@@ -6,7 +6,9 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.malikbreak.blogpost.core.base.BaseFragment
 import com.malikbreak.blogpost.databinding.FragmentCommentsBinding
+import com.malikbreak.blogpost.post.adapter.CommentsAdapter
 import com.malikbreak.blogpost.post.model.CommentModelItem
+import com.malikbreak.blogpost.post.viewmodel.PostViewModel
 
 
 class CommentsFragment : BaseFragment<FragmentCommentsBinding>() {
@@ -23,15 +25,6 @@ class CommentsFragment : BaseFragment<FragmentCommentsBinding>() {
         super.onViewCreated(view, savedInstanceState)
         postViewModel = ViewModelProvider(this)[PostViewModel::class.java]
 
-        postViewModel.getComments()
 
-        adapter = comments?.let { CommentsAdapter(requireContext(), it) }!!
-
-        binding.commentRecycler.adapter = adapter
-        binding.commentRecycler.layoutManager = LinearLayoutManager(activity)
-
-        postViewModel.commentsMutableLiveData.observe(viewLifecycleOwner) {
-            adapter.setCommentList(comments!!)
-        }
     }
 }

@@ -1,13 +1,14 @@
-package com.malikbreak.blogpost.post.ui
+package com.malikbreak.blogpost.post.adapter
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.Context
-import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.RecyclerView
 import com.malikbreak.blogpost.R
 import com.malikbreak.blogpost.post.model.PostModelItem
@@ -18,7 +19,7 @@ class PostsAdapter(
 ) : RecyclerView.Adapter<PostsAdapter.PostsViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): PostsViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.post_item, parent, false)
+        val view = LayoutInflater.from(context).inflate(R.layout.post_item, parent, false)
         return PostsViewHolder(view)
     }
 
@@ -28,8 +29,7 @@ class PostsAdapter(
         holder.postBody.text = posts[position].body
 
         holder.parent.setOnClickListener{
-            val intent = Intent(context,CommentsFragment::class.java)
-            context.startActivity(intent)
+            Navigation.findNavController(context as Activity,R.id.action_postsFragment_to_commentsFragment)
         }
     }
 

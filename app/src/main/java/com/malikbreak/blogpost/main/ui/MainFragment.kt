@@ -12,7 +12,7 @@ import com.malikbreak.blogpost.main.adapter.OptionAdapter
 import com.malikbreak.blogpost.main.model.OptionItem
 
 
-class MainFragment : BaseFragment<FragmentMainBinding>(), OptionAdapter.OnItemClickListener{
+class MainFragment : BaseFragment<FragmentMainBinding>(){
 
     private lateinit var options: List<OptionItem>
     private var adapter: RecyclerView.Adapter<OptionAdapter.OptionViewHolder>? = null
@@ -30,7 +30,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(), OptionAdapter.OnItemCl
         layoutManager = GridLayoutManager(activity,2)
         binding.recyclerView.layoutManager = layoutManager
 
-        adapter = OptionAdapter(this, options, this)
+        adapter = OptionAdapter( options)
         binding.recyclerView.adapter = adapter
 
     }
@@ -43,9 +43,7 @@ class MainFragment : BaseFragment<FragmentMainBinding>(), OptionAdapter.OnItemCl
         return array
     }
 
-    override fun onItemClick(position: Int) {
-        view?.let { Navigation.findNavController(it).navigate(R.id.action_mainFragment_to_postsFragment) }
-    }
+
 
 
 }

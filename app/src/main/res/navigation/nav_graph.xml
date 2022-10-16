@@ -9,7 +9,11 @@
         android:id="@+id/postsFragment"
         android:name="com.malikbreak.blogpost.post.ui.PostsFragment"
         android:label="fragment_posts"
-        tools:layout="@layout/fragment_posts"/>
+        tools:layout="@layout/fragment_posts">
+        <action
+            android:id="@+id/action_postsFragment_to_commentsFragment"
+            app:destination="@id/commentsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/todosFragment"
         android:name="com.malikbreak.blogpost.todo.ui.TodosFragment"
@@ -37,4 +41,9 @@
             app:destination="@id/usersFragment" />
 
     </fragment>
+    <fragment
+        android:id="@+id/commentsFragment"
+        android:name="com.malikbreak.blogpost.post.ui.CommentsFragment"
+        android:label="fragment_comments"
+        tools:layout="@layout/fragment_comments" />
 </navigation>
