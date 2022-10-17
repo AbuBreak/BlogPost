@@ -16,7 +16,7 @@ import com.malikbreak.blogpost.main.model.OptionItem
 class OptionAdapter(
     var options: List<OptionItem>,
 ) :
-    RecyclerView.Adapter<OptionAdapter.OptionViewHolder>()  {
+    RecyclerView.Adapter<OptionAdapter.OptionViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): OptionViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.grid_item, parent, false)
@@ -26,8 +26,17 @@ class OptionAdapter(
     override fun onBindViewHolder(holder: OptionViewHolder, position: Int) {
         holder.name.text = options[position].name
         holder.img.setImageResource(options[position].icon)
-        holder.cardView.setOnClickListener{
-            it.findNavController().navigate(R.id.action_mainFragment_to_postsFragment)
+
+        when (options[position].name) {
+            "Posts" -> holder.cardView.setOnClickListener {
+                it.findNavController().navigate(R.id.action_mainFragment_to_postsFragment)
+            }
+            "Todos" -> holder.cardView.setOnClickListener {
+                it.findNavController().navigate(R.id.action_mainFragment_to_todosFragment)
+            }
+            "Users" -> holder.cardView.setOnClickListener {
+                it.findNavController().navigate(R.id.action_mainFragment_to_usersFragment)
+            }
         }
     }
 
@@ -41,11 +50,7 @@ class OptionAdapter(
         var cardView: CardView = itemView.findViewById(R.id.cardView)
 
 
-
-
     }
-
-
 
 
 }

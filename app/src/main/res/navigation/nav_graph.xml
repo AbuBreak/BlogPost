@@ -43,7 +43,7 @@
     </fragment>
     <fragment
         android:id="@+id/commentsFragment"
-        android:name="com.malikbreak.blogpost.post.ui.CommentsFragment"
+        android:name="com.malikbreak.blogpost.comment.ui.CommentsFragment"
         android:label="fragment_comments"
         tools:layout="@layout/fragment_comments" />
 </navigation>

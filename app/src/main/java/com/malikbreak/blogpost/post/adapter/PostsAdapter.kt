@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.cardview.widget.CardView
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.malikbreak.blogpost.R
 import com.malikbreak.blogpost.post.model.PostModelItem
@@ -29,7 +30,7 @@ class PostsAdapter(
         holder.postBody.text = posts[position].body
 
         holder.parent.setOnClickListener{
-            Navigation.findNavController(context as Activity,R.id.action_postsFragment_to_commentsFragment)
+            it.findNavController().navigate(R.id.action_postsFragment_to_commentsFragment)
         }
     }
 

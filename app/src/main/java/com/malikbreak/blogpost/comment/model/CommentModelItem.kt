@@ -1,4 +1,4 @@
-package com.malikbreak.blogpost.post.model
+package com.malikbreak.blogpost.comment.model
 
 data class CommentModelItem(
     val body: String,

@@ -1,4 +1,4 @@
-package com.malikbreak.blogpost.post.adapter
+package com.malikbreak.blogpost.comment.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context
@@ -8,7 +8,7 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.malikbreak.blogpost.R
-import com.malikbreak.blogpost.post.model.CommentModelItem
+import com.malikbreak.blogpost.comment.model.CommentModelItem
 
 class CommentsAdapter(
     private var context: Context,
@@ -25,6 +25,8 @@ class CommentsAdapter(
         holder.postBody.text = comments[position].body
         holder.name.text = comments[position].name
         holder.email.text = comments[position].email
+
+
     }
 
     override fun getItemCount(): Int {

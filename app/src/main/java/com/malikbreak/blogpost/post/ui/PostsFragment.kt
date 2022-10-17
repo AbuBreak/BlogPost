@@ -13,7 +13,6 @@ import com.malikbreak.blogpost.post.viewmodel.PostViewModel
 class PostsFragment : BaseFragment<FragmentPostsBinding>() {
 
     private lateinit var postViewModel: PostViewModel
-
     private lateinit var adapter: PostsAdapter
     private  var posts: List<PostModelItem>? =null
 
