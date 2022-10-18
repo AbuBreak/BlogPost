@@ -4,11 +4,10 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/todoRecycler"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="Todos"
-        android:gravity="center"/>
+        android:layout_height="match_parent" />
 
 </FrameLayout>
