@@ -23,7 +23,11 @@
         android:id="@+id/usersFragment"
         android:name="com.malikbreak.blogpost.user.ui.UsersFragment"
         android:label="fragment_users"
-        tools:layout="@layout/fragment_users" />
+        tools:layout="@layout/fragment_users" >
+        <action
+            android:id="@+id/action_usersFragment_to_userPostsFragment"
+            app:destination="@id/userPostsFragment" />
+    </fragment>
     <fragment
         android:id="@+id/mainFragment"
         android:name="com.malikbreak.blogpost.main.ui.MainFragment"
@@ -46,4 +50,8 @@
         android:name="com.malikbreak.blogpost.comment.ui.CommentsFragment"
         android:label="fragment_comments"
         tools:layout="@layout/fragment_comments" />
+    <fragment
+        android:id="@+id/userPostsFragment"
+        android:name="com.malikbreak.blogpost.postsByUser.ui.UserPostsFragment"
+        android:label="UserPostsFragment" />
 </navigation>
